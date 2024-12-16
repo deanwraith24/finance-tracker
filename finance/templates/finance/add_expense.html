@@ -1,10 +1,24 @@
-<form method="post">
-    {% csrf_token %}
-    <label for="description">Description:</label>
-    <input type="text" name="description" id="description" required>
+{% extends "base.html" %}
 
-    <label for="amount">Amount:</label>
-    <input type="number" step="0.01" name="amount" id="amount" required>
+{% load static %}
 
-    <button type="submit">Submit</button>
-</form>
+{% block content %}
+<div class="container">
+    <div class="card">
+        <form method="post">
+            {% csrf_token %}
+            <div class="mb-3">
+                <label for="description" class="form-label">Description:</label>
+                <input type="text" name="description" id="description" class="form-control" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="amount" class="form-label">Amount:</label>
+                <input type="number" step="0.01" name="amount" id="amount" class="form-control" required>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+</div>
+{% endblock %}

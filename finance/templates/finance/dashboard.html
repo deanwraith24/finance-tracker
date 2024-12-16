@@ -1,13 +1,30 @@
-<h1>Your Budgets</h1>
-<ul>
-    {% for budget in budgets %}
-        <li><a href="{% url 'budget_detail' budget.id %}">{{ budget.name }}</a></li>
-    {% endfor %}
-</ul>
-<a href="{% url 'add_budget' %}">Add a New Budget</a>
+{% extends "base.html" %}
 
-{% if user.is_authenticated %}
-    <p>Welcome, {{ user.email }}! <a href="{% url 'account_logout' %}">Logout</a></p>
-{% else %}
-    <a href="{% url 'account_login' %}">Login</a> | <a href="{% url 'account_signup' %}">Sign Up</a>
-{% endif %}
+{% load static %}
+
+{% block content %}
+<div class="header">Your Budgets</div>
+<div class="container">
+    <!-- Welcome message -->
+    <h1>Welcome to the Dashboard, {{ user.username }}!</h1>
+
+    <div class="card">
+        <h2>Your Budgets</h2>
+        <ul>
+            {% for budget in budgets %}
+                <li>
+                    <a href="{% url 'budget_detail' budget.id %}">{{ budget.name }}</a>
+                </li>
+            {% endfor %}
+        </ul>
+        <!-- Add New Budget button -->
+        <a href="{% url 'add_budget' %}">
+            <button>Add New Budget</button>
+        </a>
+    </div>
+    <div>
+        <!-- Logout button -->
+        <a href="{% url 'logout' %}" class="btn btn-danger">Logout</a>
+    </div>
+</div>
+{% endblock %}

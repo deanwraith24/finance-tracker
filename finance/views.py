@@ -1,6 +1,8 @@
 from django.shortcuts import render, redirect
 from .models import Budget, Income, Expense
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.views import LogoutView
+from django.urls import reverse_lazy
 
 # Create your views here.
 
@@ -56,3 +58,10 @@ def add_expense(request, budget_id):
         Expense.objects.create(budget=budget, description=description, amount=amount)
         return redirect('budget_detail', budget_id=budget_id)
     return render(request, 'finance/add_expense.html')
+
+class CustomLogoutView(LogoutView):
+    next_page = reverse_lazy('login')  # Redirect to login page after logout
+
+@login_required
+def dashboard(request):
+    return render(request, 'finance/dashboard.html')

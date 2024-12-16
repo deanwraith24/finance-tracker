@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Budget Details</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+    <a href="{% url 'dashboard' %}">← Back to Dashboard</a>
+    
+    <h1>{{ budget.name }}</h1>
+    <p>Total Income: {{ total_income }}</p>
+    <p>Total Expense: {{ total_expense }}</p>
+    <p>Balance: {{ balance }}</p>
+
+    <h2>Incomes</h2>
+    <ul>
+        {% for income in incomes %}
+            <li>{{ income.description }} - {{ income.amount }}</li>
+        {% endfor %}
+    </ul>
+
+    <h2>Expenses</h2>
+    <ul>
+        {% for expense in expenses %}
+            <li>{{ expense.description }} - {{ expense.amount }}</li>
+        {% endfor %}
+    </ul>
+
+    <a href="{% url 'add_income' budget.id %}">Add Income</a>
+    <a href="{% url 'add_expense' budget.id %}">Add Expense</a>
+
+    <h2>Income Breakdown</h2>
+    <canvas id="incomeChart"></canvas>
+
+    <h2>Expense Breakdown</h2>
+    <canvas id="expenseChart"></canvas>
+
+    <script>
+        // Income Chart
+        var incomeCtx = document.getElementById('incomeChart').getContext('2d');
+        var incomeChart = new Chart(incomeCtx, {
+            type: 'pie',
+            data: {
+                labels: [{% for income in incomes %}'{{ income.description }}'{% if not forloop.last %}, {% endif %}{% endfor %}],
+                datasets: [{
+                    data: [{% for income in incomes %}{{ income.amount }}{% if not forloop.last %}, {% endif %}{% endfor %}],
+                    backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56', '#4BC0C0', '#9966FF'],
+                }]
+            },
+        });
+
+        // Expense Chart
+        var expenseCtx = document.getElementById('expenseChart').getContext('2d');
+        var expenseChart = new Chart(expenseCtx, {
+            type: 'pie',
+            data: {
+                labels: [{% for expense in expenses %}'{{ expense.description }}'{% if not forloop.last %}, {% endif %}{% endfor %}],
+                datasets: [{
+                    data: [{% for expense in expenses %}{{ expense.amount }}{% if not forloop.last %}, {% endif %}{% endfor %}],
+                    backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56', '#4BC0C0', '#9966FF'],
+                }]
+            },
+        });
+    </script>
+</body>
+</html>

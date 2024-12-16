@@ -1,0 +1,13 @@
+<h1>Your Budgets</h1>
+<ul>
+    {% for budget in budgets %}
+        <li><a href="{% url 'budget_detail' budget.id %}">{{ budget.name }}</a></li>
+    {% endfor %}
+</ul>
+<a href="{% url 'add_budget' %}">Add a New Budget</a>
+
+{% if user.is_authenticated %}
+    <p>Welcome, {{ user.email }}! <a href="{% url 'account_logout' %}">Logout</a></p>
+{% else %}
+    <a href="{% url 'account_login' %}">Login</a> | <a href="{% url 'account_signup' %}">Sign Up</a>
+{% endif %}

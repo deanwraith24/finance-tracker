@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Budget</title>
+</head>
+<body>
+    <h1>Add a New Budget</h1>
+    <form method="post">
+        {% csrf_token %}
+        <label for="name">Budget Name:</label>
+        <input type="text" id="name" name="name" required>
+        <button type="submit">Add Budget</button>
+    </form>
+    <a href="{% url 'dashboard' %}">Back to Dashboard</a>
+</body>
+</html>

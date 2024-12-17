@@ -30,10 +30,10 @@ SECRET_KEY = 'django-insecure-qzcz(!c^hess79&5t+p7^p$ay%0vv7hy%9&m3pd@zyv9^*l=4@
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost', '8000-deanwraith2-financetrac-17dlaxqklqg.ws.codeinstitute-ide.net']
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost', '8000-deanwraith2-financetrac-cardh0egwdi.ws.codeinstitute-ide.net']
 
 CSRF_TRUSTED_ORIGINS = [
-    'https://8000-deanwraith2-financetrac-17dlaxqklqg.ws.codeinstitute-ide.net',
+    'https://8000-deanwraith2-financetrac-cardh0egwdi.ws.codeinstitute-ide.net',
 ]
 
 # Application definition

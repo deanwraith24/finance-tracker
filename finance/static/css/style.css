@@ -66,3 +66,16 @@ canvas {
         font-size: 2rem;
     }
 }
+
+.budget-list {
+    list-style-type: none; /* Removes bullet points */
+    padding: 0; /* Removes default padding */
+}
+
+.budget-list li {
+    margin-bottom: 10px; /* Adds spacing between items */
+}
+
+.budget-list li input {
+    margin-right: 10px; /* Adds spacing between checkbox and link */
+}

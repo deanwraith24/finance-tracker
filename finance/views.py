@@ -3,6 +3,8 @@ from .models import Budget, Income, Expense
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.views import LogoutView
 from django.urls import reverse_lazy
+from django.http import JsonResponse
+from django.contrib import messages
 
 # Create your views here.
 
@@ -41,27 +43,36 @@ def budget_detail(request, budget_id):
 
 @login_required
 def add_income(request, budget_id):
+    budget = Budget.objects.get(id=budget_id, user=request.user)
     if request.method == 'POST':
-        budget = Budget.objects.get(id=budget_id, user=request.user)
         description = request.POST['description']
         amount = request.POST['amount']
         Income.objects.create(budget=budget, description=description, amount=amount)
         return redirect('budget_detail', budget_id=budget_id)
-    return render(request, 'finance/add_income.html')
+    return render(request, 'finance/add_income.html', {'budget': budget})
 
 @login_required
 def add_expense(request, budget_id):
+    budget = Budget.objects.get(id=budget_id, user=request.user)
     if request.method == 'POST':
-        budget = Budget.objects.get(id=budget_id, user=request.user)
         description = request.POST['description']
         amount = request.POST['amount']
         Expense.objects.create(budget=budget, description=description, amount=amount)
         return redirect('budget_detail', budget_id=budget_id)
-    return render(request, 'finance/add_expense.html')
+    return render(request, 'finance/add_expense.html', {'budget': budget})
 
 class CustomLogoutView(LogoutView):
     next_page = reverse_lazy('login')  # Redirect to login page after logout
 
 @login_required
-def dashboard(request):
-    return render(request, 'finance/dashboard.html')
+def delete_budgets(request):
+    if request.method == "POST":
+        budget_ids = request.POST.getlist('budgets')  # Get a list of budget IDs
+        if budget_ids:
+            # Delete only budgets that belong to the logged-in user
+            Budget.objects.filter(id__in=budget_ids, user=request.user).delete()
+            messages.success(request, "Selected budgets have been deleted.")
+        else:
+            messages.error(request, "No budgets were selected.")
+        return redirect('dashboard')
+    return JsonResponse({"error": "Invalid request method."}, status=400)

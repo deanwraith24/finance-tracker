@@ -5,9 +5,20 @@
 <div class="container">
     <div class="card">
         <h1 class="text-center">Sign Up</h1>
-        <form method="post" class="form-group">
+        <form method="post" class="form-group" action="{% url 'signup' %}">
             {% csrf_token %}
             {{ form.as_p }}
+            {% if form.errors %}
+                <div class="alert alert-danger">
+                    <ul>
+                        {% for field, errors in form.errors.items %}
+                            {% for error in errors %}
+                                <li>{{ error }}</li>
+                            {% endfor %}
+                        {% endfor %}
+                    </ul>
+                </div>
+            {% endif %}
             <button type="submit" class="btn btn-primary w-100 mt-3">Sign Up</button>
         </form>
         <p class="text-center mt-3">
@@ -35,4 +46,3 @@
     }
 </style>
 {% endblock %}
-

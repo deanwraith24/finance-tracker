@@ -83,8 +83,12 @@ def signup(request):
     if request.method == "POST":
         form = CustomUserCreationForm(request.POST)
         if form.is_valid():
-            form.save()
-            return redirect('login')  # Redirect to the login page after sign-up
+            form.save()  # Save the user to the database
+            messages.success(request, "Your account has been successfully created. Please log in.")
+            return redirect('login')  # Redirect to login page after successful sign-up
+        else:
+            print("Form errors:", form.errors)  # Debugging
+            messages.error(request, "There was an error with your sign-up. Please check the form and try again.")
     else:
         form = CustomUserCreationForm()
     return render(request, 'accounts/signup.html', {'form': form})

@@ -5,6 +5,8 @@ from django.contrib.auth.views import LogoutView
 from django.urls import reverse_lazy
 from django.http import JsonResponse
 from django.contrib import messages
+from django.contrib.auth.forms import UserCreationForm
+from .forms import CustomUserCreationForm
 
 # Create your views here.
 
@@ -76,3 +78,13 @@ def delete_budgets(request):
             messages.error(request, "No budgets were selected.")
         return redirect('dashboard')
     return JsonResponse({"error": "Invalid request method."}, status=400)
+
+def signup(request):
+    if request.method == "POST":
+        form = CustomUserCreationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('login')  # Redirect to the login page after sign-up
+    else:
+        form = CustomUserCreationForm()
+    return render(request, 'accounts/signup.html', {'form': form})

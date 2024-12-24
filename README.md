@@ -19,8 +19,6 @@ This is a simple income and expenses tracker that allows a user to start a priva
   * [Add Income Page](#add-income-page)
   * [Add Expense Page](#add-expense-page)
 
-* [Future Enhancements](#future-enhancements)
-
 * [Testing](#testing)
   * [Manual Testing](#manual-testing)
   * [Validation](#validation)
@@ -40,86 +38,69 @@ The site owner wanted a space where users could start a unique account where the
 
 #### <u>Wireframes</u>
 
-![Dashboard Wireframe](https:)
+![Dashboard Wireframe](https://github.com/deanwraith24/finance-tracker/blob/main/assets/images/dashboard.jpg)
 
-![Budget Detail Wireframe](https:)
+![Budget Detail Wireframe](https://github.com/deanwraith24/finance-tracker/blob/main/assets/images/budget_detail.jpg)
 
 ### <u>Features</u>
 
 #### <u>Log-In Page</u>
 
-The landing page has the game title at the top and then the rules of the game listed below.
+The login page allows users who have already registered an account to login into their account with their selected username and password.
 
-Below the rules is a button that allows the player to start the game when they have read the rules and are ready to start.
+It also allows new users to access the sign-up page.
 
-![Log-In Page]()
+![Log-In Page](https://github.com/deanwraith24/finance-tracker/blob/main/assets/images/login_page.jpg)
 
 #### <u>Sign-Up Page</u>
 
-When the player clicks the start game button on the landing page they are directed to the game page. On the game page the title at the top of the page is a link that will redirect to the landing page if the user wants to read the rules again. 
+The sign-up page allows new users to register an account. Users need to add a username, email and password to register an account. There are also instructions that describe how to select usernames and passwords.
 
-Below that is the question the user needs to answer. The questions are randomly selected from a collection of 50 questions and are not repeated in a single game.
-
-There is then a section for the user to input a guess. It reminds the player the number needs to be between 0 and 100. 
-
-Then there is the submit guess button. If the button is clicked and the input field is empty an error messgae will appear prompting the player to input a guess. When the guess is input and the submit button is clicked the answer to the question is displayed, the score is updated and the submit button is disabled so it can't be clicked more than once. There is also a next question button that appears so the user can move forward in the game. 
-
-There is a score counter that updates depending on the players answer. It is updated by adding the difference between the users guess and the correct answer. There is also a question counter to show the player their progress. 
-
-When the player answers the final question the next question button changes to end game. When clicked the screen changes to show the players final score and gives them the option to play again.
-
-![Sign-Up Page](https://github.com/deanwraith24/triviagame/blob/main/assets/images/game_page.jpg)
+![Sign-Up Page](https://github.com/deanwraith24/finance-tracker/blob/main/assets/images/sign_up_page.jpg)
 
 #### <u>Dashboard</u>
 
-The landing page has the game title at the top and then the rules of the game listed below.
+The dashboard is where users can see a list of their budgets they have created.
 
-Below the rules is a button that allows the player to start the game when they have read the rules and are ready to start.
+It also gives users the ability to add new budgets and delete old budgets they no longer need.
 
-![Dashboard]()
+Users can also logout of the app from this page.
+
+![Dashboard](https://github.com/deanwraith24/finance-tracker/blob/main/assets/images/dashboard_real.jpg)
 
 #### <u>Budget Detail Page</u>
 
-The landing page has the game title at the top and then the rules of the game listed below.
+This page shows details of the selected budget.
 
-Below the rules is a button that allows the player to start the game when they have read the rules and are ready to start.
+It shows a seperate list for each incomes and expenses and shows a summary with totals for each.
 
-![Budget Detail Page]()
+There is the ability to add a new income and expense.
+
+There is also a pie chart that shows the relationship between incomes and expenses.
+
+There is also a link to return to the dashboard.
+
+![Budget Detail Page](https://github.com/deanwraith24/finance-tracker/blob/main/assets/images/budget_detail_top.jpg)
+
+![Budget Detail Page](https://github.com/deanwraith24/finance-tracker/blob/main/assets/images/budget_detail_bottom.jpg)
 
 #### <u>Add Income Page</u>
 
-The landing page has the game title at the top and then the rules of the game listed below.
+This page allows users to add various incomes with a description.
 
-Below the rules is a button that allows the player to start the game when they have read the rules and are ready to start.
-
-![Add Income Page]()
+![Add Income Page](https://github.com/deanwraith24/finance-tracker/blob/main/assets/images/add_income.jpg)
 
 #### <u>Add Expense Page</u>
 
-The landing page has the game title at the top and then the rules of the game listed below.
+This page allows users to add various expenses with a description.
 
-Below the rules is a button that allows the player to start the game when they have read the rules and are ready to start.
-
-![Add Expense Page]()
-
-### <u>Future Enhancements</u>
-
-The list below is some features that could be added in the future to enhance the user experience.
-
-* Score Board
-A score board could be added so that players can keep track of their top 5 scores and track their progress.
-
-* Question Timer
-A timer could be added that could either be used for the whole game or each question that could make the game more difficult.
-
-* Categories and Difficulty
-Questions could be seperated into specific categories and players could have a selection menu where they can select different categories and difficulty levels to challenge themselves.
+![Add Expense Page](https://github.com/deanwraith24/finance-tracker/blob/main/assets/images/add_expense.jpg)
 
 ### <u>Testing</u>
 
 #### <u>Manual Testing</u>
 
-I tested the game myself and also sent it to famliy and friends to play on various devices and to send feedback.
+In manual testing I created accounts myself and went through all of the available features.
 
 #### <u>Validation</u>
  * HTML
@@ -135,23 +116,14 @@ I tested the game myself and also sent it to famliy and friends to play on vario
 
 Some of the issues that were encountered and then corrected during the testing are listed below, 
 
-* Initially there was no way to return to the landing page, so the heading was turned into a link to allow this if users wanted to read the rules again.
+* I realised there was no way to return to the dashboard from the budget detail page so a link was added to the budget detail page.
 
-* The submit button could be clicked more than once which would lead to the score being updated on each click, so the code was updated to disable the submit button after it has been clicked once and then be reset when the new question is loaded.
-
-* The submit button was being displayed in the final score screen which was corrected by hiding it.
+* There was no way to exit the add income/expense pages if the user did not want to add either. A cancel button was added.
 
 ### <u>Deployement</u>
 
-The project was deployed using GitHub Pages. The steps to deploy are as follows:
-
- 1. Open the repository and click on the settings tab.
- 2. Navigate to the Pages tab in the menu on the left.
- 3. Choose deploy from a branch and select main branch.
- 4. Click save and you can access the deployed website from the Pages tab.
+The project was deployed using Heroku. The process was started at the beginning of the project and updated regularly.
 
 ### <u>Credits</u>
 
-The idea for the game from a card game I have played before. The questions and answers came from the game and I selected the more general questions to be used. 
-
-The course work and W3 Schools were helpful in developing the functions that allow the game to work.
+The walkthrough projects, W3Schools, Code Institute course work, Slack and Django documentation were used at different stages to work through problems.

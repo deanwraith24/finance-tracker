@@ -4,8 +4,6 @@
 
 This is a simple income and expenses tracker that allows a user to start a private account and have multiple budgets stored.
 
-![Image of responsive site]()
-
 ### <u>Table of Contents</u>
 
 * [Planning](#planning)
@@ -14,12 +12,12 @@ This is a simple income and expenses tracker that allows a user to start a priva
   * [Wireframes](#wireframes)
 
 * [Features](#features)
-  * [Log in Page](#)
-  * [Sign-up Page](#)
-  * [Dashboard](#)
-  * [Budget Detail Page](#)
-  * [Add Income Page](#)
-  * [Add Expense Page](#)
+  * [Log-in Page](#log-in-page)
+  * [Sign-up Page](#sign-up-page)
+  * [Dashboard](#dashboard)
+  * [Budget Detail Page](#budget-detail-page)
+  * [Add Income Page](#add-income-page)
+  * [Add Expense Page](#add-expense-page)
 
 * [Future Enhancements](#future-enhancements)
 
@@ -48,15 +46,15 @@ The site owner wanted a space where users could start a unique account where the
 
 ### <u>Features</u>
 
-#### <u>Landing Page</u>
+#### <u>Log-In Page</u>
 
 The landing page has the game title at the top and then the rules of the game listed below.
 
 Below the rules is a button that allows the player to start the game when they have read the rules and are ready to start.
 
-![Landing Page](https://github.com/deanwraith24/triviagame/blob/main/assets/images/landing_page.jpg)
+![Log-In Page]()
 
-#### <u>Game Page</u>
+#### <u>Sign-Up Page</u>
 
 When the player clicks the start game button on the landing page they are directed to the game page. On the game page the title at the top of the page is a link that will redirect to the landing page if the user wants to read the rules again. 
 
@@ -70,10 +68,39 @@ There is a score counter that updates depending on the players answer. It is upd
 
 When the player answers the final question the next question button changes to end game. When clicked the screen changes to show the players final score and gives them the option to play again.
 
-![Game Page](https://github.com/deanwraith24/triviagame/blob/main/assets/images/game_page.jpg)
-![Guess Submitted](https://github.com/deanwraith24/triviagame/blob/main/assets/images/guess_submitted.jpg)
-![Final Question Answered](https://github.com/deanwraith24/triviagame/blob/main/assets/images/final_guess.jpg)
-![Final Score](https://github.com/deanwraith24/triviagame/blob/main/assets/images/final_score.jpg)
+![Sign-Up Page](https://github.com/deanwraith24/triviagame/blob/main/assets/images/game_page.jpg)
+
+#### <u>Dashboard</u>
+
+The landing page has the game title at the top and then the rules of the game listed below.
+
+Below the rules is a button that allows the player to start the game when they have read the rules and are ready to start.
+
+![Dashboard]()
+
+#### <u>Budget Detail Page</u>
+
+The landing page has the game title at the top and then the rules of the game listed below.
+
+Below the rules is a button that allows the player to start the game when they have read the rules and are ready to start.
+
+![Budget Detail Page]()
+
+#### <u>Add Income Page</u>
+
+The landing page has the game title at the top and then the rules of the game listed below.
+
+Below the rules is a button that allows the player to start the game when they have read the rules and are ready to start.
+
+![Add Income Page]()
+
+#### <u>Add Expense Page</u>
+
+The landing page has the game title at the top and then the rules of the game listed below.
+
+Below the rules is a button that allows the player to start the game when they have read the rules and are ready to start.
+
+![Add Expense Page]()
 
 ### <u>Future Enhancements</u>
 
